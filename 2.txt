@@ -1,0 +1,61 @@
+class complex{
+    float real,img;
+
+
+public:
+complex(){
+    real=0;
+    img=0;
+}
+
+complex(float r,float i){
+    real=r;
+    img=i;
+}
+
+complex(const complex &c){
+    real=c.real;
+    img=c.img;
+
+}
+
+
+friend complex addcomplex(complex c1,complex c2);
+void display(){
+    cout<<real<<"+"<<img<<"i"<<endl;
+}
+};
+
+
+complex addcomplex(complex c1,complex c2){
+
+    complex temp;
+    temp.real=c1.real+c2.real;
+    temp.img=c1.img+c2.img;
+    return temp;
+}
+
+
+int main(){
+    float r,i;
+
+    cout<<"enter real no.:"<<endl;
+    cin>>r;
+        cout<<"enter imaginary no.:"<<endl;
+    cin>>i;
+
+    complex c1(r,i);
+    complex c2(c1);
+    complex c3;
+    cout<<"complex number c1:";
+    c1.display();
+
+    cout<<"complex number c2(copy of c1):";
+    c2.display();
+
+    c3=addcomplex(c1,c2);
+    cout<<"sum of c1 and c2:";
+    c3.display();
+    return 0;
+
+}
